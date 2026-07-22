@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold: #ffd98a;
+    --soft-gold: #fff0c4;
+    --purple: #a77bff;
+    --pink: #ff9ed2;
+    --dark: #050512;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--dark);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+#stars,
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--purple);
+    opacity: .4;
+    filter: blur(1px);
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh) translateX(0);
+    }
+
+    to {
+        transform: translateY(-10vh) translateX(100px);
+    }
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at center, #17132e 0%, #080817 45%, #020208 100%);
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+#opening.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    max-width: 700px;
+    animation: openingFloat 5s ease-in-out infinite;
+}
+
+@keyframes openingFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.warning {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: clamp(.7rem, 2vw, 1rem);
+    margin-bottom: 25px;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px var(--gold);
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px var(--gold),
+            0 0 30px var(--gold);
+    }
+}
+
+.opening-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    line-height: .85;
+    font-weight: 600;
+    background: linear-gradient(
+        120deg,
+        #fff,
+        var(--gold),
+        #fff,
+        var(--pink)
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.opening-content p {
+    margin-top: 30px;
+    color: #c9c5d8;
+    font-size: .95rem;
+    line-height: 1.8;
+}
+
+.open-btn {
+    margin-top: 40px;
+    padding: 16px 34px;
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--gold);
+    font-family: inherit;
+    font-size: .9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.open-btn:hover {
+    background: var(--gold);
+    color: #17100a;
+    box-shadow:
+        0 0 20px var(--gold),
+        0 0 60px rgba(255, 217, 138, .4);
+    transform: scale(1.05);
+}
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(100, 65, 180, .25),
+            transparent 65%
+        );
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.small-label {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: .75rem;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 13vw, 10rem);
+    line-height: .85;
+    font-weight: 600;
+    background: linear-gradient(
+        120deg,
+        #fff,
+        var(--gold),
+        var(--pink)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    margin-top: 35px;
+    color: #d1cde1;
+    line-height: 1.8;
+    font-size: clamp(.9rem, 2vw, 1.1rem);
+}
+
+.scroll-hint {
+    margin-top: 70px;
+    color: #aaa6bd;
+    font-size: .75rem;
+    letter-spacing: 3px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* =========================
+   CAKE SECTION
+========================= */
+
+.cake-section {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 158, 210, .12),
+            transparent 60%
+        );
+}
+
+.section-container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    color: var(--soft-gold);
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: #aaa6bd;
+    margin-bottom: 60px;
+}
+
+/* Cake */
+
+.cake-wrapper {
+    position: relative;
+    width: min(90vw, 380px);
+    height: 300px;
+    margin: auto;
+}
+
+.cake {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 270px;
+}
+
+.cake-layer {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,
+        #ffb8db,
+        #c26cae
+    );
+    box-shadow:
+        0 15px 30px rgba(255, 120, 200, .25),
+        inset 0 -10px rgba(100, 30, 100, .15);
+}
+
+.cake-layer::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 50%;
+    background: #ffe1ef;
+}
+
+.cake-layer:nth-child(2) {
+    width: 85%;
+    margin: auto;
+    margin-bottom: -8px;
+}
+
+.cake-layer:nth-child(3) {
+    width: 70%;
+    margin: auto;
+    margin-bottom: -8px;
+}
+
+.candle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+}
+
+.candle {
+    position: relative;
+    width: 13px;
+    height: 60px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 7px,
+        #ff91c9 7px,
+        #ff91c9 14px
+    );
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flame {
+    position: absolute;
+    width: 18px;
+    height: 28px;
+    left: 50%;
+    top: -30px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 0;
+    background: linear-gradient(
+        45deg,
+        #ff8b00,
+        #fff4a3
+    );
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: flameDance .3s infinite alternate;
+    box-shadow:
+        0 0 10px orange,
+        0 0 30px gold;
+}
+
+@keyframes flameDance {
+    from {
+        transform: translateX(-50%) rotate(-45deg) scale(1);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(-40deg) scale(1.15);
+    }
+}
+
+.candle.off .flame {
+    display: none;
+}
+
+.cake-instruction {
+    margin-top: 35px;
+    color: #cfc9dc;
+    font-size: .9rem;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(50, 30, 90, .25),
+            transparent
+        );
+}
+
+.letter {
+    max-width: 700px;
+    margin: auto;
+    padding: clamp(25px, 6vw, 60px);
+    text-align: left;
+    border: 1px solid rgba(255, 217, 138, .25);
+    background: rgba(255,255,255,.045);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow:
+        0 0 60px rgba(140, 100, 255, .12);
+}
+
+.letter-header {
+    text-align: center;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+}
+
+.letter-content {
+    color: #ded9e8;
+    line-height: 2;
+    font-size: 1rem;
+    white-space: pre-line;
+}
+
+.signature {
+    margin-top: 40px;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    text-align: right;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn {
+    position: fixed;
+    z-index: 20;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(20, 15, 40, .75);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--purple);
+}
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+.final-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 180, 220, .18),
+            transparent 65%
+        );
+}
+
+.final-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    line-height: .9;
+    color: var(--gold);
+    text-shadow:
+        0 0 20px rgba(255, 217, 138, .5),
+        0 0 60px rgba(255, 217, 138, .2);
+}
+
+.final-content p {
+    max-width: 600px;
+    margin: 35px auto 0;
+    color: #d3cfdf;
+    line-height: 1.8;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    z-index: 50;
+    width: 10px;
+    height: 15px;
+    top: -20px;
+    animation: confettiFall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1.2s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 80px 18px;
+    }
+
+    .opening-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero h2 {
+        font-size: 5rem;
+    }
+
+    .cake {
+        transform: translateX(-50%) scale(.85);
+    }
+
+    .letter {
+        padding: 25px;
+    }
+
+    .letter-content {
+        font-size: .9rem;
+        line-height: 1.8;
+    }
+
+    .music-btn {
+        width: 46px;
+        height: 46px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div id="stars"></div>
+<div id="particles"></div>
+
+<!-- =========================
+     OPENING SCREEN
+========================= -->
+
+<div id="opening">
+
+    <div class="opening-content">
+
+        <div class="warning">
+            ✦ CLASSIFIED BIRTHDAY MESSAGE ✦
+        </div>
+
+        <h1>
+           IS IT THAT<br>
+            TIME OF THE<br>
+            YEAR YET?
+        </h1>
+
+        <p>
+            This little universe was created for my Baby Saiyu.
+            <br>
+            Proceed only if today is their birthday.
+        </p>
+
+        <button class="open-btn" onclick="openExperience()">
+            UNLOCK THE SURPRISE ✨
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     OPTIONAL MUSIC
+========================= -->
+
+<audio id="music" loop>
+     <source src="Tere Paas Main  Flute Version (From Main Vaapas Aaunga).mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()" title="Play music">
+    🎵
+</button>
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content reveal">
+
+            <div class="small-label">
+                TODAY, THE UNIVERSE CELEBRATES
+            </div>
+
+      
+
+            <h2>
+                YOUR<br>
+                TITU <3
+            </h2>
+
+            <p>
+                Somewhere between all the stars in the universe,
+                today my star (YOU OFC) became a little more special.
+            </p>
+
+            <div class="scroll-hint">
+                SCROLL TO DISCOVER ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAKE -->
+
+    <section class="cake-section">
+
+        <div class="section-container reveal">
+
+            <h2 class="section-title">
+                Make A Wish ✨
+            </h2>
+
+            <p class="section-subtitle">
+                Click each candle to blow it out.
+            </p>
+
+            <div class="cake-wrapper">
+
+                <div class="cake">
+
+                    <div class="candle-container">
+
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="cake-layer"></div>
+                    <div class="cake-layer"></div>
+                    <div class="cake-layer"></div>
+
+                </div>
+
+            </div>
+
+            <p class="cake-instruction">
+                ✨ Every candle carries a wish. ✨
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="letter-section">
+
+        <div class="section-container reveal">
+
+            <h2 class="section-title">
+                A Little Something For You 💌
+            </h2>
+
+            <div class="letter">
+
+                <div class="letter-header">
+                    DEAR SAIYU,
+                </div>
+
+                <div class="letter-content">
+
+
+Today is your special day.
+
+I just wanted to remind you how much light you bring into my life and the people around you.
+
+I hope this year brings you moments that make you smile when nobody is watching, dreams that slowly become reality, and memories that stay with you forever. I know I have disappointed you a lot this year, I am truly and genuinely very sorry from the bottom of my heart.It's crazy to think how we've spent almost 5 years together. I still remember the day I've fallen in love with you. It's your third birthday together. I am so glad to be in your life. I am really realllyyyy Thankful to Allah for sending you to me as my wife and my soulmate. I love you so so so much!!! Oh,I wish we could spend some time together. Remember on your first birthday with me? I gifted you marshmellow :)... I know it wasn,t much but I really wanted to do something for you. So before coming to school i seached the entire city trying to find what can i gift you? And with the budget and situation i chose the marshmellows :)...Also bought the same for taha which i would've never done... I did it so that it won't look suspicous lol. I am really glad to have you in my life. All those memories with you legit brings tears in my eyes. I have so many things to tell you but I couldn't because of the circumstances, but i hope everything will get better soon. For now I love you soooo much my love...<3
+
+You deserve every bit of happiness, peace, laughter, and all the beautiful things life has to offer.
+
+Anyways,
+
+Happy Birthdayyyyyy!!!<<<333
+
+Never forget how special you are<3
+
+                </div>
+
+                <div class="signature">
+                    With love,<br>
+                    YOUR TITU ✨
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL SURPRISE -->
+
+    <section class="final-section">
+
+        <div class="final-content reveal">
+
+            <div class="small-label">
+                ONE LAST THING...
+            </div>
+
+            <h2>
+                HAPPY<br>
+                BIRTHDAY! 🎉
+            </h2>
+
+            <p>
+                May this new chapter of your life be even more beautiful
+                than everything that came before it.
+            </p>
+
+            <br>
+
+            <p style="color: var(--gold);">
+                ✨ I am your reason to smile (IK;)). ✨
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================
+   CREATE STARS
+========================= */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 180; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay = Math.random() * 3 + "s";
+
+    const size = Math.random() * 3 + 1;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =========================
+   CREATE FLOATING PARTICLES
+========================= */
+
+const particleContainer = document.getElementById("particles");
+
+for (let i = 0; i < 35; i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left = Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+        (Math.random() * 15 + 10) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 10 + "s";
+
+    particleContainer.appendChild(particle);
+}
+
+
+/* =========================
+   OPEN EXPERIENCE
+========================= */
+
+function openExperience() {
+
+    document.getElementById("opening")
+        .classList.add("hidden");
+
+    document.body.style.overflowY = "auto";
+
+    // Try to start music
+    const music = document.getElementById("music");
+
+    if (music.querySelector("source")) {
+        music.play().catch(() => {});
+    }
+
+    setTimeout(() => {
+        document.querySelector(".hero").scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 700);
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let isPlaying = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+
+    if (!music.querySelector("source")) {
+
+        alert(
+            "Tere Paas Main  Flute Version (From Main Vaapas Aaunga).mp3"
+        );
+
+        return;
+    }
+
+    if (isPlaying) {
+
+        music.pause();
+
+        document.querySelector(".music-btn")
+            .textContent = "🎵";
+
+    } else {
+
+        music.play();
+
+        document.querySelector(".music-btn")
+            .textContent = "⏸️";
+    }
+
+    isPlaying = !isPlaying;
+}
+
+
+/* =========================
+   CANDLE INTERACTION
+========================= */
+
+let candlesBlown = 0;
+
+function blowCandle(candle) {
+
+    if (candle.classList.contains("off")) {
+        return;
+    }
+
+    candle.classList.add("off");
+
+    candlesBlown++;
+
+    createMiniSparkles(candle);
+
+    if (candlesBlown === 4) {
+
+        setTimeout(() => {
+
+            launchConfetti();
+
+            alert(
+                "✨ Make a wish. The universe is listening. ✨"
+            );
+
+        }, 600);
+    }
+}
+
+
+/* =========================
+   MINI SPARKLES
+========================= */
+
+function createMiniSparkles(element) {
+
+    const rect = element.getBoundingClientRect();
+
+    for (let i = 0; i < 10; i++) {
+
+        const sparkle = document.createElement("div");
+
+        sparkle.textContent = "✦";
+
+        sparkle.style.position = "fixed";
+        sparkle.style.left = rect.left + "px";
+        sparkle.style.top = rect.top + "px";
+        sparkle.style.color = "#ffd98a";
+        sparkle.style.pointerEvents = "none";
+        sparkle.style.zIndex = "100";
+
+        document.body.appendChild(sparkle);
+
+        sparkle.animate(
+            [
+                {
+                    transform: "translate(0, 0) scale(1)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(
+                            ${(Math.random() - .5) * 100}px,
+                            ${(Math.random() - .5) * 100}px
+                        )
+                        scale(0)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 800,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => sparkle.remove(), 800);
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function launchConfetti() {
+
+    for (let i = 0; i < 150; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        confetti.style.animationDelay =
+            Math.random() * 1 + "s";
+
+        confetti.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 6000);
+    }
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .15
+    }
+
+);
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => observer.observe(element));
+
+
+/* =========================
+   MOUSE STAR INTERACTION
+========================= */
+
+document.addEventListener("mousemove", event => {
+
+    const x = event.clientX / window.innerWidth - .5;
+    const y = event.clientY / window.innerHeight - .5;
+
+    starsContainer.style.transform =
+        `translate(${x * 15}px, ${y * 15}px)`;
+});
+
+
+/* =========================
+   TOUCH STAR INTERACTION
+========================= */
+
+document.addEventListener("touchmove", event => {
+
+    if (!event.touches[0]) return;
+
+    const x =
+        event.touches[0].clientX /
+        window.innerWidth - .5;
+
+    const y =
+        event.touches[0].clientY /
+        window.innerHeight - .5;
+
+    starsContainer.style.transform =
+        `translate(${x * 10}px, ${y * 10}px)`;
+});
+
+</script>
+
+</body>
+</html>
